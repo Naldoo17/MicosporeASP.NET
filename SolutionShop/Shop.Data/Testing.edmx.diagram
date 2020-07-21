@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="acadcdf1aa8e47719696da0110827d11" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_A5AC51_micosporeTestModel.CLIENTE" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A5AC51_micosporeTestModel.COMUNA" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A5AC51_micosporeTestModel.DETALLE_INFORMACION" Width="1.5" PointX="10.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A5AC51_micosporeTestModel.DETALLE_VENTA" Width="1.5" PointX="8" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A5AC51_micosporeTestModel.GRUPO_INFORMACION" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A5AC51_micosporeTestModel.INFORMACION" Width="1.5" PointX="8" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A5AC51_micosporeTestModel.PRODUCTO" Width="1.5" PointX="8" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A5AC51_micosporeTestModel.TIPO_DOCUMENTOS" Width="1.5" PointX="2.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A5AC51_micosporeTestModel.TIPO_INFO" Width="1.5" PointX="5.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A5AC51_micosporeTestModel.TIPO_PRODUCTO" Width="1.5" PointX="5.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A5AC51_micosporeTestModel.TIPO_USUARIO" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A5AC51_micosporeTestModel.VENTA" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A5AC51_micosporeTestModel.usuarios" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="DB_A5AC51_micosporeTestModel.FK__CLIENTE__TIPO__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A5AC51_micosporeTestModel.FK_COMUNA" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A5AC51_micosporeTestModel.FK_VENTA_DETALLE_VENTA" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A5AC51_micosporeTestModel.FK__INFORMACI__ID_TI__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A5AC51_micosporeTestModel.FK_TIPO_PRODUCTO" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A5AC51_micosporeTestModel.FK_USUARIOS_TIPO_USUARIO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

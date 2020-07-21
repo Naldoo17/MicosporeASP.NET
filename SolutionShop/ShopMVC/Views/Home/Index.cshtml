@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    var listaProductos = ViewBag.ListaProductos;
+}
+
+<h2>Lista de Productos</h2>
+<a href="@Url.Action("Agregar")">Agregar</a>
+
+
+<hr />
+<div class="container">
+
+    <div class="row">
+
+
+        @foreach (var p in listaProductos) 
+        {   
+            <div class="col-md-4">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">@p.NombreProducto</div>
+                    <div class="panel-body">
+
+                        <img class="img-responsive"   src="@p.Img" />
+                        <p>@p.Descripcion </p>
+                        <p>@p.Precio</p>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</div>
+

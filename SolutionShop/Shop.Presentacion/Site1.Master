@@ -1,0 +1,378 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Shop.Presentacion.Site1" %>
+
+<%--<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <script src="https://www.google.com/recaptcha/api.js?render=_reCAPTCHA_site_key"></script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" href="img/logo_micospore_white.jpg">
+
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="css/shop-homepage.css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark  fixed-top navbar2">
+        <div class="container ">
+            <br />
+            <a class="navbar-brand" href="index.aspx">Micospore</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.aspx">Inicio
+              <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog-info.aspx">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login-micospore.aspx">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="productos.aspx">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactanos.aspx">Contacto</a>
+                    </li>
+
+                </ul>
+
+                <br />
+
+            </div>
+
+
+        </div>
+    </nav>--%>
+
+
+
+
+<%--<form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</form>--%>
+
+
+<%--<footer class="py-5  footer">
+        <div class="container">
+            <div class="box">
+                <div class="container">
+                    <div class="row text-white">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                            <div class="box-part text-center">
+
+                                <a href="https://www.instagram.com/micospore/" target="_blank"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
+
+                                <div class="title">
+                                    <h4>Instagram</h4>
+                                </div>
+
+                                <div class="text">
+                                    <p>Síguenos en Instagram</p>
+                                </div>
+
+                                <a href="https://www.instagram.com/micospore/" target="_blank">Más Información</a>
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                            <div class="box-part text-center">
+
+                                <a href="https://www.facebook.com/Micospore-106003494421244" target="_blank"><i class="fa fa-facebook fa-3x" aria-hidden="true"></i></a>
+
+                                <div class="title">
+                                    <h4>Facebook</h4>
+                                </div>
+
+                                <div class="text">
+                                    <p>Síguenos en Facebook</p>
+                                </div>
+
+                                <a href="https://www.facebook.com/Micospore-106003494421244" target="_blank">Más Información</a>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <p class="m-0 text-center text-white">Copyright &copy; Micospore 2020</p>
+
+        </div>
+    </footer>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>--%>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Micospore</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <%-- <meta name="keywords" content="Super Market Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />--%>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- font-awesome icons -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <!-- js -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <!-- //js -->
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+</head>
+
+<body>
+    <!-- header -->
+
+
+    <div class="logo_products">
+        <div class="container">
+            <div class="w3ls_logo_products_left1">
+        <%--        <ul class="phone_email">
+                </ul>--%>
+               
+            </div>
+            <div class="w3ls_logo_products_left">
+                 <%--<asp:Image ID="imglogo" runat="server" ImageUrl="~/img/logo-micospore-inicio.jpg" Height="84px" Width="81px" />--%>
+                <h1><a href="index.aspx">Micospore</a></h1>
+            </div>
+
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="navigation-agileits">
+        <div class="container ">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header nav_2">
+                    <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.aspx" class="act">Inicio</a></li>
+                        <li><a href="blog-info.aspx">Blog</a></li>
+                        <li class="active"><a href="login-micospore.aspx" class="act">Login</a></li>
+
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Tienda<b class="caret"></b></a>
+                            <ul class="dropdown-menu multi-column columns-3">
+
+                                <div class="row">
+                                    <div class="multi-gd-img">
+                                        <ul class="multi-column-dropdown">
+                                            <li><a href="productos.aspx">Tienda</a></li>
+                                            <% foreach (var aux in Shop.Negocio.TipoProductoNegocio.ObtenerTipoProductosActivosAll())
+                                                {
+                                            %>
+                                            <li><a href="producto.aspx?idTipo=<%Response.Write(aux.idTipoProducto); %>"><%Response.Write(aux.nombreProducto); %></a></li>
+
+                                            <%
+                                                } %>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </ul>
+                        </li>
+                        <%--<li><a href="carrito.aspx">Carrito</a></li>--%>
+                        <li><a href="contactanos.aspx">Contacto</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+
+    <!-- //footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="w3_footer_grids">
+                <div class="col-md-4 w3_footer_grid">
+                    <h3>Contacto</h3>
+                    <ul class="address">
+                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:contacto@micospore.cl">contacto@micospore.cl</a></li>
+                        <li><a href="https://www.facebook.com/Micospore-106003494421244" target="_blank" ><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a></li>
+                        <li><a href="https://www.instagram.com/micospore/"  target="_blank"  ><i class="fa fa-instagram " aria-hidden="true"></i>Instagram</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 w3_footer_grid">
+                    <h3>Información</h3>
+                    <ul class="info">
+                        <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="contactanos.aspx">Contáctanos</a></li>
+
+                        <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="productos.aspx">Catálogo</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 w3_footer_grid">
+                    <h3>Productos</h3>
+                    <ul class="info">
+                        <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="groceries.html">Vermiculita</a></li>
+                        <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="household.html">Cepas</a></li>
+                        <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="personalcare.html">Kits</a></li>
+                        <li><i class="fa fa-arrow-right" aria-hidden="true"></i><a href="packagedfoods.html">Estiércol</a></li>
+                    </ul>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <div class="footer-copy">
+
+          <%--  <div class="container">
+                <p>
+                    © 2020 Micospore. Todos los derechos reservados
+                    | Design by <a href="http://w3layouts.com/">W3layouts                        
+                    </a>
+                    |  Cristopher Laree
+                </p>
+            </div>--%>
+
+             <div class="container">
+                <p>
+                    © 2020 Micospore. Todos los derechos reservados
+                    | Design by Cristopher Laree | Layout <a href="http://w3layouts.com/">w3layouts
+                    </a>
+                </p>
+                
+            </div>
+
+        </div>
+
+    </div>
+   <%-- <div class="footer-botm">
+        <div class="container">
+            <div class="w3layouts-foot">
+                <ul>
+                    <li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#" class="agile_twitter"><i class="fa fa-instagram " aria-hidden="true"></i></a></li>
+
+                </ul>
+            </div>
+            <div class="payment-w3ls">
+            
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>--%>
+    <!-- //footer -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- top-header and slider -->
+    <!-- here stars scrolling icon -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <!-- //here ends scrolling icon -->
+    <script src="js/minicart.min.js"></script>
+    <script>
+        // Mini Cart
+        paypal.minicart.render({
+            action: '#'
+        });
+
+        if (~window.location.search.indexOf('reset=true')) {
+            paypal.minicart.reset();
+        }
+    </script>
+    <!-- main slider-banner -->
+    <script src="js/skdslider.min.js"></script>
+    <link href="css/skdslider.css" rel="stylesheet">
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            jQuery('#demo1').skdslider({ 'delay': 5000, 'animationSpeed': 2000, 'showNextPrev': true, 'showPlayButton': true, 'autoSlide': true, 'animationType': 'fading' });
+
+            jQuery('#responsive').change(function () {
+                $('#responsive_wrapper').width(jQuery(this).val());
+            });
+
+        });
+    </script>
+    <!-- //main slider-banner -->
+</body>
+</html>

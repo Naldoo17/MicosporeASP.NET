@@ -1,0 +1,1141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_A5AC51_micosporeModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="EMAIL" />
+          </Key>
+          <Property Name="ID_CLIENTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RUT" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+          <Property Name="APE_PATERNO" Type="varchar" MaxLength="50" />
+          <Property Name="APE_MATERNO" Type="varchar" MaxLength="50" />
+          <Property Name="DIRECCION" Type="varchar" MaxLength="50" />
+          <Property Name="COMUNA" Type="int" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TELEFONO" Type="int" />
+          <Property Name="TIPO" Type="int" />
+        </EntityType>
+        <EntityType Name="COMUNA">
+          <Key>
+            <PropertyRef Name="ID_COMUNA" />
+          </Key>
+          <Property Name="ID_COMUNA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DETALLE_INFORMACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="200" />
+          <Property Name="TITULO" Type="varchar" MaxLength="200" />
+          <Property Name="IMG" Type="varchar" MaxLength="200" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="500" />
+          <Property Name="ESTADO" Type="int" />
+          <Property Name="ID_GRUPO" Type="int" />
+        </EntityType>
+        <EntityType Name="DETALLE_VENTA">
+          <Key>
+            <PropertyRef Name="ID_DETALLE" />
+          </Key>
+          <Property Name="ID_DETALLE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_VENTA" Type="int" />
+          <Property Name="ID_PRODUCTO" Type="int" />
+          <Property Name="CANTIDAD" Type="int" />
+          <Property Name="PRECIO" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="GRUPO_INFORMACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="200" />
+          <Property Name="TITULO" Type="varchar" MaxLength="200" />
+          <Property Name="IMG" Type="varchar" MaxLength="200" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="500" />
+          <Property Name="ESTADO" Type="int" />
+          <Property Name="ID_INFO" Type="int" />
+          <Property Name="ID_TIPO_INFO" Type="int" />
+        </EntityType>
+        <EntityType Name="INFORMACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TITULO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IMG" Type="varchar" MaxLength="500" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="500" />
+          <Property Name="ESTADO" Type="int" Nullable="false" />
+          <Property Name="ID_TIPO_INFO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="ID_PRODUCTO" />
+          </Key>
+          <Property Name="ID_PRODUCTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPO_PRODUCTO" Type="int" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="500" />
+          <Property Name="STOCK" Type="int" />
+          <Property Name="PRECIO" Type="int" />
+          <Property Name="img_producto" Type="varchar" MaxLength="255" />
+          <Property Name="ACTIVO" Type="int" />
+          <Property Name="DESCRIPCION_CORTA" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="TIPO_DOCUMENTOS">
+          <Key>
+            <PropertyRef Name="ID_TIPO_DOCUMENTO" />
+          </Key>
+          <Property Name="ID_TIPO_DOCUMENTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TIPO_INFO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TIPO_PRODUCTO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_PRODUCTO" />
+          </Key>
+          <Property Name="ID_TIPO_PRODUCTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ACTIVO" Type="int" />
+          <Property Name="IMG" Type="varchar" MaxLength="500" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="TIPO_USUARIO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_USUARIO" />
+          </Key>
+          <Property Name="ID_TIPO_USUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DB_A5AC51_micospore.dbo.usuarios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="correo" />
+            <PropertyRef Name="pass" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="correo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pass" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TIPO_USUARIO" Type="int" />
+        </EntityType>
+        <EntityType Name="VENTA">
+          <Key>
+            <PropertyRef Name="ID_VENTA" />
+          </Key>
+          <Property Name="ID_VENTA" Type="int" Nullable="false" />
+          <Property Name="FECHA" Type="date" />
+          <Property Name="NETO" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="IVA" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TOTAL" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="RUT_CLIENTE" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__CLIENTE__TIPO__5DCAEF64">
+          <End Role="TIPO_USUARIO" Type="Self.TIPO_USUARIO" Multiplicity="0..1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_USUARIO">
+              <PropertyRef Name="ID_TIPO_USUARIO" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="TIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INFORMACI__ID_TI__66603565">
+          <End Role="TIPO_INFO" Type="Self.TIPO_INFO" Multiplicity="1" />
+          <End Role="INFORMACION" Type="Self.INFORMACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_INFO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INFORMACION">
+              <PropertyRef Name="ID_TIPO_INFO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMUNA">
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="0..1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="ID_COMUNA" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="COMUNA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TIPO_PRODUCTO">
+          <End Role="TIPO_PRODUCTO" Type="Self.TIPO_PRODUCTO" Multiplicity="0..1" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_PRODUCTO">
+              <PropertyRef Name="ID_TIPO_PRODUCTO" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="TIPO_PRODUCTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIOS_TIPO_USUARIO">
+          <End Role="TIPO_USUARIO" Type="Self.TIPO_USUARIO" Multiplicity="0..1" />
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_USUARIO">
+              <PropertyRef Name="ID_TIPO_USUARIO" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="TIPO_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENTA_DETALLE_VENTA">
+          <End Role="VENTA" Type="Self.VENTA" Multiplicity="0..1" />
+          <End Role="DETALLE_VENTA" Type="Self.DETALLE_VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENTA">
+              <PropertyRef Name="ID_VENTA" />
+            </Principal>
+            <Dependent Role="DETALLE_VENTA">
+              <PropertyRef Name="ID_VENTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SELECCIONAR_PERSONAS_TODO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_CREAR_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RUT" Type="varchar" Mode="In" />
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+          <Parameter Name="APEPATERNO" Type="varchar" Mode="In" />
+          <Parameter Name="APEMATERNO" Type="varchar" Mode="In" />
+          <Parameter Name="DIRECCION" Type="varchar" Mode="In" />
+          <Parameter Name="TELEFONO" Type="int" Mode="In" />
+          <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+          <Parameter Name="COMUNA" Type="varchar" Mode="In" />
+          <Parameter Name="PASSWORD" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_INSERT_PRODUCTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TIPO_PROD" Type="int" Mode="In" />
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="STOCK" Type="int" Mode="In" />
+          <Parameter Name="PRECIO" Type="int" Mode="In" />
+          <Parameter Name="IMG" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_MANTENEDOR_CLIENTE_ADMINISTRADOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RUT" Type="varchar" Mode="In" />
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+          <Parameter Name="APEPATERNO" Type="varchar" Mode="In" />
+          <Parameter Name="APEMATERNO" Type="varchar" Mode="In" />
+          <Parameter Name="DIRECCION" Type="varchar" Mode="In" />
+          <Parameter Name="TELEFONO" Type="int" Mode="In" />
+          <Parameter Name="EMAIL" Type="varchar" Mode="In" />
+          <Parameter Name="COMUNA" Type="int" Mode="In" />
+          <Parameter Name="PASSWORD" Type="varchar" Mode="In" />
+          <Parameter Name="TIPO" Type="int" Mode="In" />
+          <Parameter Name="ACCION" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_MANTENEDOR_COMUNA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="varchar" Mode="In" />
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+          <Parameter Name="ACCION" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_MANTENEDOR_DETALLE_INFORMACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+          <Parameter Name="TITULO" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="IMG" Type="varchar" Mode="In" />
+          <Parameter Name="ESTADO" Type="int" Mode="In" />
+          <Parameter Name="ID_GRUPO" Type="int" Mode="In" />
+          <Parameter Name="ACCION" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_MANTENEDOR_GRUPO_INFORMACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+          <Parameter Name="TITULO" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="IMG" Type="varchar" Mode="In" />
+          <Parameter Name="ESTADO" Type="int" Mode="In" />
+          <Parameter Name="ID_INFO" Type="int" Mode="In" />
+          <Parameter Name="ID_TIPO_INFO" Type="int" Mode="In" />
+          <Parameter Name="ACCION" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_MANTENEDOR_INFORMACION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+          <Parameter Name="TITULO" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="IMG" Type="varchar" Mode="In" />
+          <Parameter Name="ESTADO" Type="int" Mode="In" />
+          <Parameter Name="TIPO_INFO" Type="int" Mode="In" />
+          <Parameter Name="ACCION" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_MANTENEDOR_PRODUCTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="TIPO_PROD" Type="int" Mode="In" />
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="STOCK" Type="int" Mode="In" />
+          <Parameter Name="PRECIO" Type="int" Mode="In" />
+          <Parameter Name="IMG" Type="varchar" Mode="In" />
+          <Parameter Name="ESTADO" Type="int" Mode="In" />
+          <Parameter Name="ACCION" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_MANTENEDOR_TIPO_INFO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+          <Parameter Name="ACCION" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_MANTENEDOR_TIPO_PRODUCTO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="IMG" Type="varchar" Mode="In" />
+          <Parameter Name="ACTIVO" Type="int" Mode="In" />
+          <Parameter Name="ACCION" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_SELECT_ALL_COMUNAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_SELECT_ALL_PRODUCTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_SELECT_ALL_PRODUCTS_FILTER_ID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_SELECT_ALL_PRODUCTS_FILTER_TIPO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_TIPO" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_SELECT_ALL_TIPO_PROD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_SELECT_DETALLE_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="PASSWORD" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_SELECT_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="PASSWORD" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SP_SELECT_USUARIO_ALL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_VALIDA_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CORREO" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="VALIDA_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USUARIO" Type="varchar" Mode="In" />
+          <Parameter Name="PASSWORD" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="DB_A5AC51_micosporeModel1StoreContainer">
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMUNA" EntityType="Self.COMUNA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETALLE_INFORMACION" EntityType="Self.DETALLE_INFORMACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DETALLE_VENTA" EntityType="Self.DETALLE_VENTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GRUPO_INFORMACION" EntityType="Self.GRUPO_INFORMACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INFORMACION" EntityType="Self.INFORMACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_DOCUMENTOS" EntityType="Self.TIPO_DOCUMENTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_INFO" EntityType="Self.TIPO_INFO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_PRODUCTO" EntityType="Self.TIPO_PRODUCTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VENTA" EntityType="Self.VENTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [usuarios].[id] AS [id], 
+    [usuarios].[correo] AS [correo], 
+    [usuarios].[pass] AS [pass], 
+    [usuarios].[TIPO_USUARIO] AS [TIPO_USUARIO]
+    FROM [dbo].[usuarios] AS [usuarios]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__CLIENTE__TIPO__5DCAEF64" Association="Self.FK__CLIENTE__TIPO__5DCAEF64">
+            <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INFORMACI__ID_TI__66603565" Association="Self.FK__INFORMACI__ID_TI__66603565">
+            <End Role="TIPO_INFO" EntitySet="TIPO_INFO" />
+            <End Role="INFORMACION" EntitySet="INFORMACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMUNA" Association="Self.FK_COMUNA">
+            <End Role="COMUNA" EntitySet="COMUNA" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TIPO_PRODUCTO" Association="Self.FK_TIPO_PRODUCTO">
+            <End Role="TIPO_PRODUCTO" EntitySet="TIPO_PRODUCTO" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIOS_TIPO_USUARIO" Association="Self.FK_USUARIOS_TIPO_USUARIO">
+            <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENTA_DETALLE_VENTA" Association="Self.FK_VENTA_DETALLE_VENTA">
+            <End Role="VENTA" EntitySet="VENTA" />
+            <End Role="DETALLE_VENTA" EntitySet="DETALLE_VENTA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_A5AC51_micosporeModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="EMAIL" />
+          </Key>
+          <Property Name="ID_CLIENTE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RUT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APE_PATERNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APE_MATERNO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COMUNA" Type="Int32" />
+          <Property Name="EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TELEFONO" Type="Int32" />
+          <Property Name="TIPO" Type="Int32" />
+          <NavigationProperty Name="TIPO_USUARIO" Relationship="Self.FK__CLIENTE__TIPO__5DCAEF64" FromRole="CLIENTE" ToRole="TIPO_USUARIO" />
+          <NavigationProperty Name="COMUNA1" Relationship="Self.FK_COMUNA" FromRole="CLIENTE" ToRole="COMUNA" />
+        </EntityType>
+        <EntityType Name="COMUNA">
+          <Key>
+            <PropertyRef Name="ID_COMUNA" />
+          </Key>
+          <Property Name="ID_COMUNA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK_COMUNA" FromRole="COMUNA" ToRole="CLIENTE" />
+        </EntityType>
+        <EntityType Name="DETALLE_VENTA">
+          <Key>
+            <PropertyRef Name="ID_DETALLE" />
+          </Key>
+          <Property Name="ID_DETALLE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_VENTA" Type="Int32" />
+          <Property Name="ID_PRODUCTO" Type="Int32" />
+          <Property Name="CANTIDAD" Type="Int32" />
+          <Property Name="PRECIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="VENTA" Relationship="Self.FK_VENTA_DETALLE_VENTA" FromRole="DETALLE_VENTA" ToRole="VENTA" />
+        </EntityType>
+        <EntityType Name="INFORMACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TITULO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IMG" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="Int32" Nullable="false" />
+          <Property Name="ID_TIPO_INFO" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TIPO_INFO" Relationship="Self.FK__INFORMACI__ID_TI__66603565" FromRole="INFORMACION" ToRole="TIPO_INFO" />
+        </EntityType>
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="ID_PRODUCTO" />
+          </Key>
+          <Property Name="ID_PRODUCTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPO_PRODUCTO" Type="Int32" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="STOCK" Type="Int32" />
+          <Property Name="PRECIO" Type="Int32" />
+          <Property Name="img_producto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ACTIVO" Type="Int32" />
+          <NavigationProperty Name="TIPO_PRODUCTO1" Relationship="Self.FK_TIPO_PRODUCTO" FromRole="PRODUCTO" ToRole="TIPO_PRODUCTO" />
+          <Property Name="DESCRIPCION_CORTA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TIPO_DOCUMENTOS">
+          <Key>
+            <PropertyRef Name="ID_TIPO_DOCUMENTO" />
+          </Key>
+          <Property Name="ID_TIPO_DOCUMENTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TIPO_INFO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="INFORMACION" Relationship="Self.FK__INFORMACI__ID_TI__66603565" FromRole="TIPO_INFO" ToRole="INFORMACION" />
+        </EntityType>
+        <EntityType Name="TIPO_PRODUCTO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_PRODUCTO" />
+          </Key>
+          <Property Name="ID_TIPO_PRODUCTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ACTIVO" Type="Int32" />
+          <Property Name="IMG" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PRODUCTO" Relationship="Self.FK_TIPO_PRODUCTO" FromRole="TIPO_PRODUCTO" ToRole="PRODUCTO" />
+        </EntityType>
+        <EntityType Name="TIPO_USUARIO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_USUARIO" />
+          </Key>
+          <Property Name="ID_TIPO_USUARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK__CLIENTE__TIPO__5DCAEF64" FromRole="TIPO_USUARIO" ToRole="CLIENTE" />
+          <NavigationProperty Name="usuarios" Relationship="Self.FK_USUARIOS_TIPO_USUARIO" FromRole="TIPO_USUARIO" ToRole="usuarios" />
+        </EntityType>
+        <EntityType Name="VENTA">
+          <Key>
+            <PropertyRef Name="ID_VENTA" />
+          </Key>
+          <Property Name="ID_VENTA" Type="Int32" Nullable="false" />
+          <Property Name="FECHA" Type="DateTime" Precision="0" />
+          <Property Name="NETO" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IVA" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TOTAL" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="RUT_CLIENTE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DETALLE_VENTA" Relationship="Self.FK_VENTA_DETALLE_VENTA" FromRole="VENTA" ToRole="DETALLE_VENTA" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="correo" />
+            <PropertyRef Name="pass" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIPO_USUARIO" Type="Int32" />
+          <NavigationProperty Name="TIPO_USUARIO1" Relationship="Self.FK_USUARIOS_TIPO_USUARIO" FromRole="usuarios" ToRole="TIPO_USUARIO" />
+        </EntityType>
+        <Association Name="FK__CLIENTE__TIPO__5DCAEF64">
+          <End Role="TIPO_USUARIO" Type="Self.TIPO_USUARIO" Multiplicity="0..1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_USUARIO">
+              <PropertyRef Name="ID_TIPO_USUARIO" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="TIPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMUNA">
+          <End Role="COMUNA" Type="Self.COMUNA" Multiplicity="0..1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="COMUNA">
+              <PropertyRef Name="ID_COMUNA" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="COMUNA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENTA_DETALLE_VENTA">
+          <End Role="VENTA" Type="Self.VENTA" Multiplicity="0..1" />
+          <End Role="DETALLE_VENTA" Type="Self.DETALLE_VENTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENTA">
+              <PropertyRef Name="ID_VENTA" />
+            </Principal>
+            <Dependent Role="DETALLE_VENTA">
+              <PropertyRef Name="ID_VENTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INFORMACI__ID_TI__66603565">
+          <End Role="TIPO_INFO" Type="Self.TIPO_INFO" Multiplicity="1" />
+          <End Role="INFORMACION" Type="Self.INFORMACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_INFO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INFORMACION">
+              <PropertyRef Name="ID_TIPO_INFO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TIPO_PRODUCTO">
+          <End Role="TIPO_PRODUCTO" Type="Self.TIPO_PRODUCTO" Multiplicity="0..1" />
+          <End Role="PRODUCTO" Type="Self.PRODUCTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_PRODUCTO">
+              <PropertyRef Name="ID_TIPO_PRODUCTO" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="TIPO_PRODUCTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIOS_TIPO_USUARIO">
+          <End Role="TIPO_USUARIO" Type="Self.TIPO_USUARIO" Multiplicity="0..1" />
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_USUARIO">
+              <PropertyRef Name="ID_TIPO_USUARIO" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="TIPO_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_A5AC51_micosporeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+          <EntitySet Name="COMUNA" EntityType="Self.COMUNA" />
+          <EntitySet Name="DETALLE_VENTA" EntityType="Self.DETALLE_VENTA" />
+          <EntitySet Name="INFORMACION" EntityType="Self.INFORMACION" />
+          <EntitySet Name="PRODUCTO" EntityType="Self.PRODUCTO" />
+          <EntitySet Name="TIPO_DOCUMENTOS" EntityType="Self.TIPO_DOCUMENTOS" />
+          <EntitySet Name="TIPO_INFO" EntityType="Self.TIPO_INFO" />
+          <EntitySet Name="TIPO_PRODUCTO" EntityType="Self.TIPO_PRODUCTO" />
+          <EntitySet Name="TIPO_USUARIO" EntityType="Self.TIPO_USUARIO" />
+          <EntitySet Name="VENTA" EntityType="Self.VENTA" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" />
+          <AssociationSet Name="FK__CLIENTE__TIPO__5DCAEF64" Association="Self.FK__CLIENTE__TIPO__5DCAEF64">
+            <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMUNA" Association="Self.FK_COMUNA">
+            <End Role="COMUNA" EntitySet="COMUNA" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENTA_DETALLE_VENTA" Association="Self.FK_VENTA_DETALLE_VENTA">
+            <End Role="VENTA" EntitySet="VENTA" />
+            <End Role="DETALLE_VENTA" EntitySet="DETALLE_VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INFORMACI__ID_TI__66603565" Association="Self.FK__INFORMACI__ID_TI__66603565">
+            <End Role="TIPO_INFO" EntitySet="TIPO_INFO" />
+            <End Role="INFORMACION" EntitySet="INFORMACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TIPO_PRODUCTO" Association="Self.FK_TIPO_PRODUCTO">
+            <End Role="TIPO_PRODUCTO" EntitySet="TIPO_PRODUCTO" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIOS_TIPO_USUARIO" Association="Self.FK_USUARIOS_TIPO_USUARIO">
+            <End Role="TIPO_USUARIO" EntitySet="TIPO_USUARIO" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+          <FunctionImport Name="SELECCIONAR_PERSONAS_TODO" />
+          <FunctionImport Name="SP_CREAR_CLIENTE">
+            <Parameter Name="RUT" Mode="In" Type="String" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="APEPATERNO" Mode="In" Type="String" />
+            <Parameter Name="APEMATERNO" Mode="In" Type="String" />
+            <Parameter Name="DIRECCION" Mode="In" Type="String" />
+            <Parameter Name="TELEFONO" Mode="In" Type="Int32" />
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="COMUNA" Mode="In" Type="String" />
+            <Parameter Name="PASSWORD" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_INSERT_PRODUCTO">
+            <Parameter Name="TIPO_PROD" Mode="In" Type="Int32" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="STOCK" Mode="In" Type="Int32" />
+            <Parameter Name="PRECIO" Mode="In" Type="Int32" />
+            <Parameter Name="IMG" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MANTENEDOR_CLIENTE_ADMINISTRADOR">
+            <Parameter Name="RUT" Mode="In" Type="String" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="APEPATERNO" Mode="In" Type="String" />
+            <Parameter Name="APEMATERNO" Mode="In" Type="String" />
+            <Parameter Name="DIRECCION" Mode="In" Type="String" />
+            <Parameter Name="TELEFONO" Mode="In" Type="Int32" />
+            <Parameter Name="EMAIL" Mode="In" Type="String" />
+            <Parameter Name="COMUNA" Mode="In" Type="Int32" />
+            <Parameter Name="PASSWORD" Mode="In" Type="String" />
+            <Parameter Name="TIPO" Mode="In" Type="Int32" />
+            <Parameter Name="ACCION" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MANTENEDOR_INFORMACION">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="TITULO" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="IMG" Mode="In" Type="String" />
+            <Parameter Name="ESTADO" Mode="In" Type="Int32" />
+            <Parameter Name="TIPO_INFO" Mode="In" Type="Int32" />
+            <Parameter Name="ACCION" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MANTENEDOR_PRODUCTO">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="TIPO_PROD" Mode="In" Type="Int32" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="STOCK" Mode="In" Type="Int32" />
+            <Parameter Name="PRECIO" Mode="In" Type="Int32" />
+            <Parameter Name="IMG" Mode="In" Type="String" />
+            <Parameter Name="ESTADO" Mode="In" Type="Int32" />
+            <Parameter Name="ACCION" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MANTENEDOR_TIPO_INFO">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="ACCION" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MANTENEDOR_TIPO_PRODUCTO">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="IMG" Mode="In" Type="String" />
+            <Parameter Name="ACTIVO" Mode="In" Type="Int32" />
+            <Parameter Name="ACCION" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SELECT_ALL_COMUNAS" ReturnType="Collection(DB_A5AC51_micosporeModel1.SP_SELECT_ALL_COMUNAS_Result)" />
+          <FunctionImport Name="SP_SELECT_ALL_PRODUCTS" ReturnType="Collection(DB_A5AC51_micosporeModel1.SP_SELECT_ALL_PRODUCTS_Result)" />
+          <FunctionImport Name="SP_SELECT_ALL_PRODUCTS_FILTER_ID" ReturnType="Collection(DB_A5AC51_micosporeModel1.SP_SELECT_ALL_PRODUCTS_FILTER_ID_Result)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SELECT_ALL_PRODUCTS_FILTER_TIPO" ReturnType="Collection(DB_A5AC51_micosporeModel1.SP_SELECT_ALL_PRODUCTS_FILTER_TIPO_Result)">
+          <Parameter Name="ID_TIPO" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SELECT_ALL_TIPO_PROD" ReturnType="Collection(DB_A5AC51_micosporeModel1.SP_SELECT_ALL_TIPO_PROD_Result)" />
+          <FunctionImport Name="SP_SELECT_DETALLE_USUARIO" ReturnType="Collection(DB_A5AC51_micosporeModel1.SP_SELECT_DETALLE_USUARIO_Result)">
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="PASSWORD" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SELECT_USUARIO" ReturnType="Collection(DB_A5AC51_micosporeModel1.SP_SELECT_USUARIO_Result)">
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="PASSWORD" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_SELECT_USUARIO_ALL" ReturnType="Collection(DB_A5AC51_micosporeModel1.SP_SELECT_USUARIO_ALL_Result)" />
+          <FunctionImport Name="SP_VALIDA_USUARIO" ReturnType="Collection(Int32)">
+          <Parameter Name="CORREO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VALIDA_USER" ReturnType="Collection(DB_A5AC51_micosporeModel1.VALIDA_USER_Result)">
+            <Parameter Name="USUARIO" Mode="In" Type="String" />
+            <Parameter Name="PASSWORD" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="DETALLE_INFORMACION" EntityType="DB_A5AC51_micosporeModel1.DETALLE_INFORMACION" />
+          <EntitySet Name="GRUPO_INFORMACION" EntityType="DB_A5AC51_micosporeModel1.GRUPO_INFORMACION" />
+          <FunctionImport Name="SP_MANTENEDOR_COMUNA">
+            <Parameter Name="ID" Mode="In" Type="String" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="ACCION" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MANTENEDOR_DETALLE_INFORMACION">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="TITULO" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="IMG" Mode="In" Type="String" />
+            <Parameter Name="ESTADO" Mode="In" Type="Int32" />
+            <Parameter Name="ID_GRUPO" Mode="In" Type="Int32" />
+            <Parameter Name="ACCION" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_MANTENEDOR_GRUPO_INFORMACION" ReturnType="Collection(DB_A5AC51_micosporeModel1.SP_MANTENEDOR_GRUPO_INFORMACION_Result)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="NOMBRE" Mode="In" Type="String" />
+            <Parameter Name="TITULO" Mode="In" Type="String" />
+            <Parameter Name="DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="IMG" Mode="In" Type="String" />
+            <Parameter Name="ESTADO" Mode="In" Type="Int32" />
+            <Parameter Name="ID_INFO" Mode="In" Type="Int32" />
+            <Parameter Name="ID_TIPO_INFO" Mode="In" Type="Int32" />
+            <Parameter Name="ACCION" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="SP_SELECT_ALL_COMUNAS_Result">
+          <Property Type="Int32" Name="ID_COMUNA" Nullable="false" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SP_SELECT_ALL_PRODUCTS_Result">
+          <Property Type="Int32" Name="ID_PRODUCTO" Nullable="false" />
+          <Property Type="Int32" Name="TIPO_PRODUCTO" Nullable="true" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DESCRIPCION" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="STOCK" Nullable="true" />
+          <Property Type="Int32" Name="PRECIO" Nullable="true" />
+          <Property Type="String" Name="img_producto" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="SP_SELECT_ALL_PRODUCTS_FILTER_ID_Result">
+          <Property Type="Int32" Name="ID_PRODUCTO" Nullable="false" />
+          <Property Type="Int32" Name="TIPO_PRODUCTO" Nullable="true" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DESCRIPCION" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="STOCK" Nullable="true" />
+          <Property Type="Int32" Name="PRECIO" Nullable="true" />
+          <Property Type="String" Name="img_producto" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="SP_SELECT_ALL_PRODUCTS_FILTER_TIPO_Result">
+          <Property Type="Int32" Name="ID_PRODUCTO" Nullable="false" />
+          <Property Type="Int32" Name="TIPO_PRODUCTO" Nullable="true" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DESCRIPCION" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="STOCK" Nullable="true" />
+          <Property Type="Int32" Name="PRECIO" Nullable="true" />
+          <Property Type="String" Name="img_producto" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="SP_SELECT_ALL_TIPO_PROD_Result">
+          <Property Type="Int32" Name="ID_TIPO_PRODUCTO" Nullable="false" />
+          <Property Type="String" Name="NOMBRE" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DESCRIPCION" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="IMG" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="SP_SELECT_DETALLE_USUARIO_Result">
+          <Property Type="String" Name="CORREO" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="TIPO_USUARIO" Nullable="true" />
+          <Property Type="String" Name="RUT" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="APPATERNO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="APMATERNO" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="ID_COMUNA" Nullable="true" />
+          <Property Type="String" Name="DIRECCION" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EMAIL" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="TELEFONO" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_SELECT_USUARIO_Result">
+          <Property Type="String" Name="correo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="pass" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="TIPO_USUARIO" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_SELECT_USUARIO_ALL_Result">
+          <Property Type="String" Name="correo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="pass" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="TIPO_USUARIO" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="VALIDA_USER_Result">
+          <Property Type="String" Name="correo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="pass" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="TIPO_USUARIO" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="DETALLE_INFORMACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TITULO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IMG" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="Int32" />
+          <Property Name="ID_GRUPO" Type="Int32" />
+        </EntityType>
+        <EntityType Name="GRUPO_INFORMACION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TITULO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IMG" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="Int32" />
+          <Property Name="ID_INFO" Type="Int32" />
+          <Property Name="ID_TIPO_INFO" Type="Int32" />
+        </EntityType>
+        <ComplexType Name="SP_MANTENEDOR_GRUPO_INFORMACION_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="TITULO" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="IMG" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="DESCRIPCION" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="ESTADO" Nullable="true" />
+          <Property Type="Int32" Name="ID_INFO" Nullable="true" />
+          <Property Type="Int32" Name="ID_TIPO_INFO" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_A5AC51_micosporeModel1StoreContainer" CdmEntityContainer="DB_A5AC51_micosporeEntities">
+          <EntitySetMapping Name="CLIENTE">
+            <EntityTypeMapping TypeName="DB_A5AC51_micosporeModel1.CLIENTE">
+              <MappingFragment StoreEntitySet="CLIENTE">
+                <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APE_PATERNO" ColumnName="APE_PATERNO" />
+                <ScalarProperty Name="APE_MATERNO" ColumnName="APE_MATERNO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="COMUNA" ColumnName="COMUNA" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMUNA">
+            <EntityTypeMapping TypeName="DB_A5AC51_micosporeModel1.COMUNA">
+              <MappingFragment StoreEntitySet="COMUNA">
+                <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_VENTA">
+            <EntityTypeMapping TypeName="DB_A5AC51_micosporeModel1.DETALLE_VENTA">
+              <MappingFragment StoreEntitySet="DETALLE_VENTA">
+                <ScalarProperty Name="ID_DETALLE" ColumnName="ID_DETALLE" />
+                <ScalarProperty Name="ID_VENTA" ColumnName="ID_VENTA" />
+                <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INFORMACION">
+            <EntityTypeMapping TypeName="DB_A5AC51_micosporeModel1.INFORMACION">
+              <MappingFragment StoreEntitySet="INFORMACION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="ID_TIPO_INFO" ColumnName="ID_TIPO_INFO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTO">
+            <EntityTypeMapping TypeName="DB_A5AC51_micosporeModel1.PRODUCTO">
+              <MappingFragment StoreEntitySet="PRODUCTO">
+                <ScalarProperty Name="DESCRIPCION_CORTA" ColumnName="DESCRIPCION_CORTA" />
+                <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+                <ScalarProperty Name="TIPO_PRODUCTO" ColumnName="TIPO_PRODUCTO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+                <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+                <ScalarProperty Name="img_producto" ColumnName="img_producto" />
+                <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_DOCUMENTOS">
+            <EntityTypeMapping TypeName="DB_A5AC51_micosporeModel1.TIPO_DOCUMENTOS">
+              <MappingFragment StoreEntitySet="TIPO_DOCUMENTOS">
+                <ScalarProperty Name="ID_TIPO_DOCUMENTO" ColumnName="ID_TIPO_DOCUMENTO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_INFO">
+            <EntityTypeMapping TypeName="DB_A5AC51_micosporeModel1.TIPO_INFO">
+              <MappingFragment StoreEntitySet="TIPO_INFO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_PRODUCTO">
+            <EntityTypeMapping TypeName="DB_A5AC51_micosporeModel1.TIPO_PRODUCTO">
+              <MappingFragment StoreEntitySet="TIPO_PRODUCTO">
+                <ScalarProperty Name="ID_TIPO_PRODUCTO" ColumnName="ID_TIPO_PRODUCTO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ACTIVO" ColumnName="ACTIVO" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_USUARIO">
+            <EntityTypeMapping TypeName="DB_A5AC51_micosporeModel1.TIPO_USUARIO">
+              <MappingFragment StoreEntitySet="TIPO_USUARIO">
+                <ScalarProperty Name="ID_TIPO_USUARIO" ColumnName="ID_TIPO_USUARIO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENTA">
+            <EntityTypeMapping TypeName="DB_A5AC51_micosporeModel1.VENTA">
+              <MappingFragment StoreEntitySet="VENTA">
+                <ScalarProperty Name="ID_VENTA" ColumnName="ID_VENTA" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="NETO" ColumnName="NETO" />
+                <ScalarProperty Name="IVA" ColumnName="IVA" />
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="RUT_CLIENTE" ColumnName="RUT_CLIENTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="DB_A5AC51_micosporeModel1.usuarios">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="TIPO_USUARIO" ColumnName="TIPO_USUARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SELECCIONAR_PERSONAS_TODO" FunctionName="DB_A5AC51_micosporeModel1.Store.SELECCIONAR_PERSONAS_TODO" />
+          <FunctionImportMapping FunctionImportName="SP_CREAR_CLIENTE" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_CREAR_CLIENTE" />
+          <FunctionImportMapping FunctionImportName="SP_INSERT_PRODUCTO" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_INSERT_PRODUCTO" />
+          <FunctionImportMapping FunctionImportName="SP_MANTENEDOR_CLIENTE_ADMINISTRADOR" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_MANTENEDOR_CLIENTE_ADMINISTRADOR" />
+          <FunctionImportMapping FunctionImportName="SP_MANTENEDOR_INFORMACION" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_MANTENEDOR_INFORMACION" />
+          <FunctionImportMapping FunctionImportName="SP_MANTENEDOR_PRODUCTO" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_MANTENEDOR_PRODUCTO" />
+          <FunctionImportMapping FunctionImportName="SP_MANTENEDOR_TIPO_INFO" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_MANTENEDOR_TIPO_INFO" />
+          <FunctionImportMapping FunctionImportName="SP_MANTENEDOR_TIPO_PRODUCTO" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_MANTENEDOR_TIPO_PRODUCTO" />
+          <FunctionImportMapping FunctionImportName="SP_SELECT_ALL_COMUNAS" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_SELECT_ALL_COMUNAS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_A5AC51_micosporeModel1.SP_SELECT_ALL_COMUNAS_Result">
+                <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SELECT_ALL_PRODUCTS" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_SELECT_ALL_PRODUCTS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_A5AC51_micosporeModel1.SP_SELECT_ALL_PRODUCTS_Result">
+                <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+                <ScalarProperty Name="TIPO_PRODUCTO" ColumnName="TIPO_PRODUCTO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+                <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+                <ScalarProperty Name="img_producto" ColumnName="img_producto" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SELECT_ALL_PRODUCTS_FILTER_ID" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_SELECT_ALL_PRODUCTS_FILTER_ID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_A5AC51_micosporeModel1.SP_SELECT_ALL_PRODUCTS_FILTER_ID_Result">
+                <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+                <ScalarProperty Name="TIPO_PRODUCTO" ColumnName="TIPO_PRODUCTO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+                <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+                <ScalarProperty Name="img_producto" ColumnName="img_producto" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SELECT_ALL_PRODUCTS_FILTER_TIPO" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_SELECT_ALL_PRODUCTS_FILTER_TIPO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_A5AC51_micosporeModel1.SP_SELECT_ALL_PRODUCTS_FILTER_TIPO_Result">
+                <ScalarProperty Name="ID_PRODUCTO" ColumnName="ID_PRODUCTO" />
+                <ScalarProperty Name="TIPO_PRODUCTO" ColumnName="TIPO_PRODUCTO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+                <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+                <ScalarProperty Name="img_producto" ColumnName="img_producto" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SELECT_ALL_TIPO_PROD" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_SELECT_ALL_TIPO_PROD">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_A5AC51_micosporeModel1.SP_SELECT_ALL_TIPO_PROD_Result">
+                <ScalarProperty Name="ID_TIPO_PRODUCTO" ColumnName="ID_TIPO_PRODUCTO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SELECT_DETALLE_USUARIO" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_SELECT_DETALLE_USUARIO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_A5AC51_micosporeModel1.SP_SELECT_DETALLE_USUARIO_Result">
+                <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+                <ScalarProperty Name="TIPO_USUARIO" ColumnName="TIPO_USUARIO" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APPATERNO" ColumnName="APPATERNO" />
+                <ScalarProperty Name="APMATERNO" ColumnName="APMATERNO" />
+                <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SELECT_USUARIO" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_SELECT_USUARIO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_A5AC51_micosporeModel1.SP_SELECT_USUARIO_Result">
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="TIPO_USUARIO" ColumnName="TIPO_USUARIO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_SELECT_USUARIO_ALL" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_SELECT_USUARIO_ALL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_A5AC51_micosporeModel1.SP_SELECT_USUARIO_ALL_Result">
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="TIPO_USUARIO" ColumnName="TIPO_USUARIO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_VALIDA_USUARIO" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_VALIDA_USUARIO" />
+          <FunctionImportMapping FunctionImportName="VALIDA_USER" FunctionName="DB_A5AC51_micosporeModel1.Store.VALIDA_USER">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_A5AC51_micosporeModel1.VALIDA_USER_Result">
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="TIPO_USUARIO" ColumnName="TIPO_USUARIO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="DETALLE_INFORMACION">
+            <EntityTypeMapping TypeName="DB_A5AC51_micosporeModel1.DETALLE_INFORMACION">
+              <MappingFragment StoreEntitySet="DETALLE_INFORMACION">
+                <ScalarProperty Name="ID_GRUPO" ColumnName="ID_GRUPO" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+                <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GRUPO_INFORMACION">
+            <EntityTypeMapping TypeName="DB_A5AC51_micosporeModel1.GRUPO_INFORMACION">
+              <MappingFragment StoreEntitySet="GRUPO_INFORMACION">
+                <ScalarProperty Name="ID_TIPO_INFO" ColumnName="ID_TIPO_INFO" />
+                <ScalarProperty Name="ID_INFO" ColumnName="ID_INFO" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+                <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_MANTENEDOR_COMUNA" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_MANTENEDOR_COMUNA" />
+          <FunctionImportMapping FunctionImportName="SP_MANTENEDOR_DETALLE_INFORMACION" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_MANTENEDOR_DETALLE_INFORMACION" />
+          <FunctionImportMapping FunctionImportName="SP_MANTENEDOR_GRUPO_INFORMACION" FunctionName="DB_A5AC51_micosporeModel1.Store.SP_MANTENEDOR_GRUPO_INFORMACION">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_A5AC51_micosporeModel1.SP_MANTENEDOR_GRUPO_INFORMACION_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="TITULO" ColumnName="TITULO" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="ID_INFO" ColumnName="ID_INFO" />
+                <ScalarProperty Name="ID_TIPO_INFO" ColumnName="ID_TIPO_INFO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

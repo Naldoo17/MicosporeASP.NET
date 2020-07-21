@@ -1,0 +1,41 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+ * Prueba
+ */
+body {
+    padding-top: 56px;
+    background-image: url('../img/imagen-purpura-1.jpg');
+    webkit-background-size: cover;
+    moz-background-size: cover;
+    o-background-size: cover;
+    background-size: cover;
+}
+
+
+.login-micospore {
+    background-color: whitesmoke;
+    height:650px;
+    width: 400px;
+}
+
+.login-micospore-2 {
+    height: auto;
+    width: 100%;
+    color: black;
+    margin-left:10px;
+   
+
+}
+
+.footer {
+    background-color: black;
+    height: auto;
+}
+
+.navbar2 {
+    background-color: black;
+    color: white;
+}
+

@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Agregar";
+}
+
+<h2>Agregar prueba</h2>
+
+<form action="@Url.Action("Agregar")" method="post">
+
+
+    <input type="text" name="txtNombre" placeholder="Ingrese Nombre Producto" class="form-control" />
+    <br />
+
+    <input type="text" name="txtTipoProd" placeholder="Ingrese tipo Producto" class="form-control" />
+    <br />
+
+    <input type="text" name="txtDescripcion" placeholder="Ingrese descripcion Producto" class="form-control" />
+    <br />
+
+    <input type="text" name="txtStock" placeholder="Ingrese stock Producto" class="form-control" />
+    <br />
+
+    <input type="text" name="txtPrecio" placeholder="Ingrese precio Producto" class="form-control" />
+    <br />
+
+    <input type="text" name="txtUrl" placeholder="Ingrese producto Producto" class="form-control" />
+    <br />
+
+
+
+
+
+    <input type="submit" value="Agregar" class="btn btn-success" />
+
+
+</form>
+
+
+<a href="@Url.Action("Index")">Cancelar</a>
