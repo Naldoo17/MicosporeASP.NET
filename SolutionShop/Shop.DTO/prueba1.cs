@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Shop.DTO
 {
-    class prueba1
+    public class prueba1
     {
+        public int id { get; set; }
     }
 }
